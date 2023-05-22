@@ -13,8 +13,12 @@ Mise en place d'un clsuter kubernetes avec k3sup, k3s et le loadbalancing par de
 </ul>
 
 # Installation de k3sup
+```ruby
 curl -sLS https://get.k3sup.dev | sh
 sudo install k3sup /usr/local/bin/
+
+k3sup --help
+```
 
 k3sup --help
 
