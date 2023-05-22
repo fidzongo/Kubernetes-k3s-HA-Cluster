@@ -3,7 +3,7 @@ Mise en place d'un clsuter kubernetes avec k3sup, k3s et le loadbalancing par de
 
 # Contenu
 <ul id="menu">
-  <li><a href="..." title="#Installation de k3sup">Installation de k3sup</a></li>
+  <li><a href="..." title="#Installation de k3sup-">Installation de k3sup</a></li>
   <li><a href="..." title="aller à la page 2">Mise en place du cluster k3s</a></li>
   <li><a href="..." title="aller à la page 3">Installation de k3 dashboard</a></li>
   <li><a href="..." title="aller à la page 4">Installation de traefik dashboard</a></li>
