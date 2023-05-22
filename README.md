@@ -1,7 +1,7 @@
 # Kubernetes-cluster-avec-k3sup-k3s-Traefik
 Mise en place d'un clsuter kubernetes avec k3sup, k3s et le loadbalancing par defaut (traefik)
 <li>k3s: une version aléger de k8s</li>
-<li>k3sup: un utilitaire permettant d'installer facilement k3s. Il permet d'initier un cluster k3s, de joindre un cluster existant ou d'installer k3s sur machine distante ou locale. Pour plus d'informations sur <a href="https://github.com/alexellis/k3sup">k3s/k3sup</a> </li>
+<li>k3sup: un utilitaire permettant d' automatiser l'installation de k3s. Il permet d'initier un cluster k3s, de joindre un cluster existant ou d'installer k3s sur machine distante ou locale. Pour plus d'informations sur <a href="https://github.com/alexellis/k3sup">k3s/k3sup</a> </li>
 
 
 # Contenu
@@ -13,6 +13,10 @@ Mise en place d'un clsuter kubernetes avec k3sup, k3s et le loadbalancing par de
 </ul>
 
 # Installation de k3sup
+curl -sLS https://get.k3sup.dev | sh
+sudo install k3sup /usr/local/bin/
+
+k3sup --help
 
 # Mise en place du cluster k3s
 
