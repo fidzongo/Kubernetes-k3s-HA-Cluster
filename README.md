@@ -25,7 +25,7 @@ Ce exemple d'ecrit un cluster à 5 noeuds :
 - 2 serveurs (masters nodes)
 - 3 agents (workers nodes)
 
-```sh
+```ruby
 # Paramètres d'installation
 server1=<your server 1 hostname>
 server2=<your server 2 hostname>
@@ -53,7 +53,7 @@ Pour plus d'informations sur l'installation vous pouvez consulter <a href="https
 
 # Installation de k3s dashboard
 Toujours depuis le serveur ou le terminal d'installation du cluster exécuter la commande ci-dessous pour installer le dashboard k3s:
-```sh
+```ruby
 GITHUB_URL=https://github.com/kubernetes/dashboard/releases
 VERSION_KUBE_DASHBOARD=$(curl -w '%{url_effective}' -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e 's|.*/||')
 sudo k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSION_KUBE_DASHBOARD}/aio/deploy/recommended.yaml
