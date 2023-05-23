@@ -21,9 +21,9 @@ sudo install k3sup /usr/local/bin/
 k3sup --help
 
 # Mise en place du cluster k3s
-Cet exemple d'ecrit un cluster à deux serveurs et deux workers nodes.
+Cet exemple d'ecrit un cluster à deux noeuds et deux workers nodes.
 Pour plus d'informations sur l'installation vous pouvez consulter <a href="https://github.com/alexellis/k3sup">l'article d'alexellis</a>
-## Masters - node01
+## Master - node01
 sudo k3sup install --host server1 --user fidzongo --cluster
 ## Master - node02
 ## Worker - worker01
