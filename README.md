@@ -21,13 +21,34 @@ sudo install k3sup /usr/local/bin/
 k3sup --help
 
 # Mise en place du cluster k3s
-Cet exemple d'ecrit un cluster à deux noeuds et deux workers nodes.
+Cet exemple d'ecrit un cluster à 5 noeuds:
+- 2 serveurs (masters nodes)
+- 3 agents (workers nodes)
+```sh
+# Paramètres d'installation
+server1=<your server 1 hostname>
+server2=<your server 2 hostname>
+agent1=<your agent 1 hostname>
+agent2=<your agent 2 hostname>
+username=<your ssh username>
+
+# Commandes a exécuter depuis une machine ou terminal ayant accès en ssh (avec échange de clés)aux serveurs du cluster
+# Pour initialiser le cluster (installation du serveur/master 1) 
+k3sup install --host ${server1} --user ${username} --cluster
+# Installation du serveur/master 2 (le serveur 2 rejoint le cluster initialement crée avec le serveur 1)
+k3sup join --server-host ${server1} --host ${server2} --user ${username} --server
+# Pour ajouter un agent/worker 1 au cluster
+k3sup join --server-host ${server1} --host ${agent1} --user ${username}
+# Pour ajouter un agent/worker 1 au cluster
+k3sup join --server-host ${server1} --host ${agent2} --user ${username}
+
+# Pour verifier l'installation (depuis le terminal ou vous avez fait les installations)
+export KUBECONFIG=/path_to/kubeconfig
+kubectl config use-context default
+kubectl get node -o wide
+
+```
 Pour plus d'informations sur l'installation vous pouvez consulter <a href="https://github.com/alexellis/k3sup">l'article d'alexellis</a>
-## Master - node01
-sudo k3sup install --host server1 --user fidzongo --cluster
-## Master - node02
-## Worker - worker01
-## Worker - worker02
 
 # Installation de k3s dashboard
 
