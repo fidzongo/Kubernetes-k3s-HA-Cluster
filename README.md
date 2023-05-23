@@ -15,15 +15,16 @@ Mise en place d'un clsuter kubernetes avec k3sup, k3s et le loadbalancing par de
 # Installation de k3sup
 ```ruby
 curl -sLS https://get.k3sup.dev | sh
-sudo install k3sup /usr/local/bin/
+sudo install k3sup /usr/local/bin/ # cette commande est nécessaire uniquement si l'installation est faite avec un utilisateur qui n'a pas de privilèges de copier le binaire k3s dans /usr/local/bin
 ```
 
 k3sup --help
 
 # Mise en place du cluster k3s
-Cet exemple d'ecrit un cluster à 5 noeuds:
+Ce exemple d'ecrit un cluster à 5 noeuds :
 - 2 serveurs (masters nodes)
 - 3 agents (workers nodes)
+
 ```sh
 # Paramètres d'installation
 server1=<your server 1 hostname>
@@ -51,5 +52,17 @@ kubectl get node -o wide
 Pour plus d'informations sur l'installation vous pouvez consulter <a href="https://github.com/alexellis/k3sup">l'article d'alexellis</a>
 
 # Installation de k3s dashboard
+Toujours depuis le serveur ou le terminal d'installation du cluster exécuter la commande ci-dessous pour installer le dashboard k3s:
+```sh
+GITHUB_URL=https://github.com/kubernetes/dashboard/releases
+VERSION_KUBE_DASHBOARD=$(curl -w '%{url_effective}' -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e 's|.*/||')
+sudo k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSION_KUBE_DASHBOARD}/aio/deploy/recommended.yaml
+
+kubectl create -f dashboard.admin-user.yml -f dashboard.admin-user-role.yml
+
+kubectl -n kubernetes-dashboard create token admin-user
+
+kubectl proxy
+```
 
 # Installation de traefik dashboard
