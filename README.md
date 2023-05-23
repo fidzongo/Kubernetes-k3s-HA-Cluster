@@ -22,6 +22,10 @@ k3sup --help
 k3sup --help
 
 # Mise en place du cluster k3s
+## Masters - node01
+## Master - node02
+## Worker - worker01
+## Worker - worker02
 
 # Installation de k3s dashboard
 
