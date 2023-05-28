@@ -34,7 +34,7 @@ Ce exemple d'ecrit un cluster à 6 noeuds :
 ```ruby
 # Paramètres d'installation
 server1=<hostname server 1>
-server2=<hostname server 3>
+server2=<hostname server 2>
 server3=<hostname server 3>
 agent1=<hostname agent 1>
 agent2=<hostname agent 2>
@@ -83,14 +83,14 @@ export TOKEN=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 64)
 export TOKEN=$(head -c 64 /dev/urandom|shasum| cut -d - -f 1)
 
 # Liste des serveurs / maters nodes
-server1=vmubuntu1
-server2=vmubuntu2
+server1=<hostname server 1>
+server2=<hostname server 2>
 
 # Liste des serveurs / workers nodes
-agent1=vmubuntu4
+agent1=<hostname agent 1>
 
 # utilisateur de connexion ssh
-username=fidzongo
+username=<ssh user>
 
 # Initialisation du premier master (master 1) du cluster
 k3sup install --host ${server1} --user ${username} --datastore="${DATASTORE}" --token=${TOKEN}
