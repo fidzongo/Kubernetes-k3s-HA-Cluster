@@ -114,11 +114,10 @@ kubectl create -f dashboard.admin-user.yml -f dashboard.admin-user-role.yml
 # Pour se connecter au dashboard exécuter la commande ci-dessous:
 kubectl proxy
 
-# URL de connexion au dashboard
-
 # Token de connexion au dashboard
 kubectl -n kubernetes-dashboard create token admin-user
 
+# URL de connexion au dashboard
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 ```
 
