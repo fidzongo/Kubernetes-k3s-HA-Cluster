@@ -122,3 +122,7 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 ```
 
 # Installation de traefik dashboard
+Installation du dashboard traeffik
+```
+kubectl apply -f traefik-dashboard.yml
+```
